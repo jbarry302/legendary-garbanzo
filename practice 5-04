@@ -1,0 +1,5 @@
+What function do we use to start a session?
+we use the session_start() function
+
+Where are these session variables stored? 
+these session variables are stored in the $_SESSION global variable in php
