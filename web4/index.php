@@ -1,9 +1,18 @@
 <?php
 // set cookies
 if (isset($_POST['submit'])) {
-    $username = htmlentities($_POST['username']);
-    setcookie('username', $username, time() + 3600);
-    header('Location: loggedin.php');
+    if (empty($_POST['username']) || empty($_POST['password'])) {
+        echo '
+        <div class="invalid" style="background:red; text-align: center; padding: 5px; color: white; margin-bottom: 10px;">
+          Please enter a valid username and password.
+        </div>
+    ';
+    } else {
+        $username = htmlentities($_POST['username']);
+        setcookie('username', $username, time() + 3600);
+        setcookie('auth', 'ok', time() + 3600);
+        header('Location: loggedin.php');
+    }
 }
 ?>
 <html lang="en">

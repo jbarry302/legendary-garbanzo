@@ -1,4 +1,8 @@
 <?php
+    if(!isset($_COOKIE['auth']) || $_COOKIE['auth'] != 'ok') {
+        header('Location: index.php');
+    }
+
     if(isset($_COOKIE['username'])){
         echo 'User '. $_COOKIE['username'] . ' is set<br>';
     } else {
